@@ -1,4 +1,7 @@
 1.写出自己理解的原型和原型链
+获取对象属性时，如果对象本身没有这个属性，那就会去他的原型__proto__上去找，如果还查不到，就去找原型的原型，一直找到最顶层(Object.prototype)为止
+
+
 
 2.function y(num) {
     console.log(num);
@@ -14,6 +17,10 @@
    }
    console.log(fn);
 }
+答案：
+
+
+
 y(2);
 请写出最终答案。
 
@@ -53,15 +60,15 @@ C.prototype = Object.create(B.prototype);
 C.prototype.constructor = C;
 
 var c1 = new C();
-c1.prototype === ?
-c1.__proto__ === ?
-c1.__proto__.prototype === ?
-c1.__proto__.__proto__ === ?
-c1.__proto__.__proto__.__proto__ === ?
-c1.__proto__.constructor === ?
-c1.__proto__.constructor.prototype === ?
-c1.__proto__.constructor.prototype.constructor === ?
-C.prototype.constructor === ?
-C.prototype.constructor.prototype === ?
-C.prototype.constructor.prototype.constructor === ?
-C.prototype.__proto__ === ?
+c1.prototype === 					undefuned
+c1.__proto__ === 					prototye
+c1.__proto__.prototype ===				prototye
+c1.__proto__.__proto__ === 				B
+c1.__proto__.__proto__.__proto__ === 			prototye
+c1.__proto__.constructor ===  				c 
+c1.__proto__.constructor.prototype ===   		prototye
+c1.__proto__.constructor.prototype.constructor === 	c
+C.prototype.constructor === ?				c
+C.prototype.constructor.prototype === ?			prototye
+C.prototype.constructor.prototype.constructor === ?	c
+C.prototype.__proto__ === ?				constructor
